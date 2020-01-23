@@ -6,6 +6,11 @@ import { faCheckCircle, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faCheckCircle, faTrashAlt)
 
+class App extends Component {
+  render() {
+    
+   }
+  }
 
 function App() {
   return (
