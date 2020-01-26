@@ -5,7 +5,19 @@ import React, { Component } from 'react';
    
    
    class List extends Component {
-     render() {
+     
+    async deleteTask(task) {
+      
+      if (window.confirm(`Are you sure you want to delete: "${task.title}"`)) {
+        
+        await fetch(`http://localhost:3001/tasks/${task.id}`, {method: 'DELETE'});
+
+        window.location.reload();
+
+      }
+    }
+    
+    render() {
        return (
          <div>
            <Card>
@@ -26,9 +38,9 @@ import React, { Component } from 'react';
                        }
                      </td>
                      <td>
-                       <a className="delete" href="#">
-                         <FontAwesomeIcon icon="trash-alt"/>
-                       </a>
+                     <a className="delete" href="#" onClick={() => this.deleteTask(task)}>
+                        <FontAwesomeIcon icon="trash-alt"/>
+                     </a>
                      </td>
                    </tr>;
                  })}
