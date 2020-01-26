@@ -12,7 +12,7 @@ import React, { Component } from 'react';
         
         await fetch(`http://localhost:3001/tasks/${task.id}`, {method: 'DELETE'});
 
-        window.location.reload();
+        this.props.loadTasks();
 
       }
     }
